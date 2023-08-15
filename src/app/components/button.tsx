@@ -29,15 +29,23 @@ const Button: React.FC<ButtonProps> = ({
 
 return (
     <div>
-         <button onClick={onClick} disabled={disabled} type={type}  className={clsx(`
+         <button onClick={onClick} disabled={disabled} className={clsx(`
          flex 
          justify-center 
          px-3
          py-2
          text-sm
          font-semibold 
-            focus
-         `)}></button>
+        focus-visiable:outline
+        focus-visiable:outline-2
+        focus-visiable:outline-offset-2
+         `, disabled && "opacity-50 cursor-default",
+         fullWidth &&  "w-full",
+         secondary ? 'text-gray-900' : 'text-white',
+         danger && "bg-rose-500 hover:bg-rose-600 focus-visiable:outline-rose-600",
+         !secondary && !danger && "bg-sky-500 hover: bg-sky-600 focus-visiable:outline-sky-600"
+         
+         )}>{children}</button>
 
     </div>
 )
